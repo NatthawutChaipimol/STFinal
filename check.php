@@ -39,7 +39,16 @@ if($c==1){
             echo "Error: " . $sql2 . "<br>" . $conn->error;
         }
     }
-
-
+}elseif ($c==4){
+    $img = $_FILES["img"]["name"];
+    $sql = "INSERT INTO `foodimg`(`img`) value ('".$img."')";
+    if($conn->query($sql)===true){
+        echo "New record created successfully";
+    }else{
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+    $target = "Image/".basename($_FILES["img"]["name"]);
+    move_uploaded_file($_FILES['img']['tmp_name'],$target);
+    header("Location:index.php");
 }
 ?>

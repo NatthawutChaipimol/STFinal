@@ -13,7 +13,7 @@ if (!isset($_SESSION["name"])) {
     $_SESSION["name"] = "";
 }
 //$_SESSION["name"] = "5555";
-$conn = new mysqli("localhost", "root", "", "final_soft-test2");
+$conn = new mysqli("localhost", "root", "", "final_soft-test");
 if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
 $sql1 = "SELECT * FROM foodimg";
 $result1 = $conn->query($sql1);

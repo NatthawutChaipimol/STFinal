@@ -55,7 +55,7 @@
             reader.onload = function (e) {
                 $('#myImg')
                     .attr('src', e.target.result)
-                    .width(150)
+                    .width(250)
                     .height(200);
             };
             reader.readAsDataURL(input.files[0]);

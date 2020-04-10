@@ -6,41 +6,40 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Index</title>
 </head>
+<?php
+    $conn = new mysqli("localhost", "root", "", "final_soft-test");
+    if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
+    $sql1 = "SELECT * FROM foodimg";
+    $result1 = $conn->query($sql1);
+    $sql2 = "SELECT * FROM news";
+    $result2 = $conn->query($sql2);
+?>
 <body>
 <nav class="navbar navbar-light bg-primary">
-    <a class="navbar-brand" href="#">
-        FoodShop
-    </a>
+    <a class="navbar-brand" href="#">FoodShop</a>
+    <form class="form-inline">
+        <button class="btn btn-light btn-outline-info my-2 my-sm-0 mr-2" type="submit">LOGIN</button>
+        <button class="btn btn-light btn-outline-info my-2 my-sm-0" type="submit">Register</button>
+    </form>
 </nav>
 <div class="container mt-5">
+
     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-            <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-        </ol>
         <div class="carousel-inner">
+            <?php
+            $foodstart = true;
+            while($row = $result1->fetch_assoc()) {
+                if($foodstart == true){
+                        $foodstart = false; ?>
             <div class="carousel-item active">
-                <img src="Image/1.jpg" class="d-block w-100" alt="..."height="500px">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>First slide label</h5>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                </div>
+                <img src="Image/<?php echo $row["img"]; ?>" class="d-block w-100" alt="..."height="500px">
             </div>
-            <div class="carousel-item">
-                <img src="Image/2.jpg" class="d-block w-100" alt="..."height="500px">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Second slide label</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="Image/3.jpg" class="d-block w-100" alt="..."height="500px">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Third slide label</h5>
-                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                </div>
-            </div>
+            <?php }else{?>
+                    <div class="carousel-item">
+                        <img src="Image/<?php echo $row["img"]; ?>" class="d-block w-100" alt="..."height="500px">
+                    </div>
+            <?php }
+            } ?>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -51,8 +50,26 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-</div>
 
+    <?php while($row = $result2->fetch_assoc()) { ?>
+    <div class="card mb-3 mt-4" >
+        <div class="row no-gutters">
+            <div class="col-md-2">
+                <img src="Image/<?php echo $row["nImg"]; ?>" class="card-img" alt="..." style="height: 200px">
+            </div>
+            <div class="col-md-10">
+                <div class="card-body">
+                    <h5 class="card-title"><?php echo $row["headLine"]; ?></h5>
+                    <p class="card-text">
+                        <?php echo $row["newsContent"]; ?>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php } ?>
+
+</div>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>

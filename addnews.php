@@ -78,7 +78,7 @@
                     return false;
                 }
                 else {
-                    alert("เพิ่มข่าวสำเร็จ.....")
+                    alert("เพิ่มข่าวสำเร็จ")
                     return true;
                 }
             }

@@ -58,13 +58,18 @@
             reader.readAsDataURL(input.files[0]);
         }
     }
+
     function chackInput() {
         var img = document.getElementById("img").value;
         if(img == ""){
             alert("กรุณาเลือกรูปภาพ");
             return false;
+        }else{
+            alert("เพิ่มรูปอาหารสำเร็จ");
+            return true;
         }
     }
+
 </script>
 
 </body>

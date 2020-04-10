@@ -68,20 +68,15 @@
         if(header == ""){
             alert("กรุณาใส่หัวเรื่องข่าว");
             return false;
-        }else{
-            if(detail == ""){
-                alert("กรุณาใส่รายละเอียด");
-                return false;
-            }else{
-                if(img == ""){
-                    alert("กรุณาเลือกรูปภาพ");
-                    return false;
-                }
-                else {
-                    alert("เพิ่มข่าวสำเร็จ")
-                    return true;
-                }
-            }
+        }else if(detail == ""){
+            alert("กรุณาใส่รายละเอียด");
+            return false;
+        }else if(img == ""){
+            alert("กรุณาเลือกรูปภาพ");
+            return false;
+        }else {
+            alert("เพิ่มข่าวสำเร็จ")
+            return true;
         }
     }
 </script>

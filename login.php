@@ -12,11 +12,17 @@
     <a class="navbar-brand" href="index.php" style="color: white">FoodShop</a>
 </nav>
 <body style="background-color: #00a3cc">
+<?php
+    $l = $_REQUEST["l"];
+?>
 <div class="container pt-5" >
-    <h3 style="color: white ;text-align: center">login</h3>
+    <h3 style="color: white ;text-align: center;margin-bottom: 50px">login</h3>
+    <?php if($l == 2){ ?>
+    <h5 style="color: #cc0000 ;text-align: center">Invalid phone number or email.</h5>
+    <?php } ?>
     <div class="row">
         <div class="col-3"></div>
-        <div class="col-6 rounded p-3 mt-5" style="color: black;background-color: white">
+        <div class="col-6 rounded p-3" style="color: black;background-color: white">
             <form action="check.php?c=2" method="POST">
                 <div class="form-group">
                     <label for="email">Email address</label>
@@ -24,10 +30,10 @@
                 </div>
                 <div class="form-group">
                     <label for="tel">Phone number</label>
-                    <input type="tel" class="form-control" id="tel" name="tel" placeholder="08-999-9999" >
+                    <input type="tel" class="form-control" id="tel" name="tel" placeholder="089999999" >
                 </div>
                 <div style="align-content: center;text-align: center">
-                    <button type="submit" class="btn btn-primary">Login</button>
+                    <button type="submit" class="btn btn-primary" onclick="return check()">Login</button>
                 </div>
 
             </form>
@@ -35,5 +41,30 @@
         <div class="col-3" ></div>
     </div>
 </div>
+<script>
+    function check() {
+        var phoneFormat = /^\d{10}$/;
+        var emailFormat=  /^([a-z0-9A-Z_]{2,100})?[@]?$/;
+        // var nameFormat = /^[A-Za-z0-9ก-ฮ_ะาิีึืุูเะแโั ]{2,100}$/;
+
+        // let fname = document.getElementById("fname");
+        // let lname = document.getElementById("lname");
+        let email = document.getElementById("email");
+        let tel = document.getElementById("tel");
+
+        // if(fname.value == "" && fname.value.match(nameFormat)){
+        //     window.alert('กรุณากรอกข้อมูล Username')
+        //     return false
+        // }
+        // else if(lname.value == "" && lname.value.match(nameFormat)){
+        //     window.alert('กรุณากรอกข้อมูล Username')
+        //     return false
+        // }
+        if(tel.value == "" && tel.value.match(phoneFormat)){
+            window.alert('กรุณากรอกข้อมูล Phone number')
+            return false
+        }
+    }
+</script>
 </body>
 </html>

@@ -7,7 +7,12 @@
     <title>Index</title>
 </head>
 <?php
-    $conn = new mysqli("localhost", "root", "", "final_soft-test");
+    session_start();
+    if(!isset($_SESSION["name"])){
+        $_SESSION["name"] = "";
+    }
+//$_SESSION["name"] = "5555";
+    $conn = new mysqli("localhost", "root", "", "final_soft-test2");
     if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
     $sql1 = "SELECT * FROM foodimg";
     $result1 = $conn->query($sql1);
@@ -15,11 +20,23 @@
     $result2 = $conn->query($sql2);
 ?>
 <body>
-<nav class="navbar navbar-light bg-primary">
-    <a class="navbar-brand" href="#">FoodShop</a>
+<?php
+//    include 'header.php';
+//?>
+<nav class="navbar navbar-light" style="background-color: #00a3cc;color: white">
+    <a class="navbar-brand" href="index.php" style="color: white">FoodShop</a>
     <form class="form-inline">
-        <button class="btn btn-light btn-outline-info my-2 my-sm-0 mr-2" type="submit">LOGIN</button>
-        <button class="btn btn-light btn-outline-info my-2 my-sm-0" type="submit">Register</button>
+        <a style="margin-right: 10px"><?php echo $_SESSION["name"]; ?></a>
+        <?php
+        if($_SESSION["name"]==""){
+        ?>
+            <button class="btn btn-light btn-outline-primary my-2 my-sm-0 mr-2" onclick="window.location.href = 'login.php?l=1'">Login</button>
+            <button class="btn btn-light btn-outline-primary my-2 my-sm-0" formaction='register.php?r=1'>Register</button>
+        <?php }else{ ?>
+            <button class="btn btn-light btn-outline-primary my-2 my-sm-0 mr-2">Add Food picture</button>
+            <button class="btn btn-light btn-outline-primary my-2 my-sm-0 mr-2">Add News</button>
+            <button class="btn btn-light btn-outline-primary my-2 my-sm-0" onclick="window.location.href = 'check.php?c=1';" >Logout</button>
+        <?php } ?>
     </form>
 </nav>
 <div class="container mt-5">

@@ -30,8 +30,8 @@
         <?php
         if($_SESSION["name"]==""){
         ?>
-            <button class="btn btn-light btn-outline-primary my-2 my-sm-0 mr-2" formaction='login.php?l=1'>Login</button>
-            <button class="btn btn-light btn-outline-primary my-2 my-sm-0" formaction='register.php'>Register</button>
+            <button class="btn btn-light btn-outline-primary my-2 my-sm-0 mr-2" onclick="window.location.href = 'login.php?l=1'">Login</button>
+            <button class="btn btn-light btn-outline-primary my-2 my-sm-0" formaction='register.php?r=1'>Register</button>
         <?php }else{ ?>
             <button class="btn btn-light btn-outline-primary my-2 my-sm-0 mr-2">Add Food picture</button>
             <button class="btn btn-light btn-outline-primary my-2 my-sm-0 mr-2">Add News</button>

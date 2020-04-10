@@ -10,13 +10,8 @@
 <nav class="navbar navbar-light" style="background-color: #4C8577;">
     <a class="navbar-brand text-light" href="index.php" style="color: #00a3cc">
         <img src="img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
-
     </a>
 <!--    <form class="form-inline" action="--><?php //echo $link; ?><!--" method='POST'>-->
-
-
-
-
 <!--        <button class="bt1 my-2 my-sm-0 ml-3" type="submit">--><?php //echo $bt; ?><!--</button>-->
 <!--    </form>-->
     <div class="form-group" style="margin-bottom: 0px">

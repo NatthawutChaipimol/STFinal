@@ -26,7 +26,7 @@ $result2 = $conn->query($sql2);
 //?>
 <nav class="navbar navbar-light" style="background-color: #00a3cc;color: white">
     <a class="navbar-brand" href="index.php" style="color: white">FoodShop</a>
-    <a style="margin-right: 10px"><?php echo $_SESSION["name"]; ?></a>
+
     <?php
     if ($_SESSION["name"] == "") {
         ?>
@@ -34,15 +34,19 @@ $result2 = $conn->query($sql2);
             <button class="btn btn-light btn-outline-primary my-2 my-sm-0 mr-2"
                     onclick="window.location.href = 'login.php?l=1'">Login
             </button>
-            <button class="btn btn-light btn-outline-primary my-2 my-sm-0" onclick="window.location.href = 'login.php?r=1'">Register
+            <button class="btn btn-light btn-outline-primary my-2 my-sm-0" onclick="window.location.href = 'register.php?r=1'">Register
             </button>
         </div>
     <?php } else { ?>
+    <div class="form-inline">
+        <a style="margin-right: 10px"><?php echo $_SESSION["name"]; ?></a>
         <button class="btn btn-light btn-outline-primary my-2 my-sm-0 mr-2">Add Food picture</button>
-        <button class="btn btn-light btn-outline-primary my-2 my-sm-0 mr-2">Add News</button>
+        <button class="btn btn-light btn-outline-primary my-2 my-sm-0 mr-2"
+                onclick="window.location.href = 'addnews.php';">Add News</button>
         <button class="btn btn-light btn-outline-primary my-2 my-sm-0"
                 onclick="window.location.href = 'check.php?c=1';">Logout
         </button>
+    </div>
     <?php } ?>
 </nav>
 <div class="container mt-5">

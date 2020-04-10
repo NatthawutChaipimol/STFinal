@@ -11,12 +11,17 @@
     <a class="navbar-brand" href="index.php" style="color: white">FoodShop</a>
 </nav>
 <body style="background-color: #00a3cc">
+<?php
+    $r = $_REQUEST["r"];
+?>
 <div class="container pt-5" >
-    <h3 style="color: white ;text-align: center">register</h3>
+    <h3 style="color: white ;text-align: center;margin-bottom: 50px">register</h3>
+    <?php if($r == 2){ ?>
+        <h5 style="color: #cc0000 ;text-align: center">This email is not available.</h5>
+    <?php } ?>
     <div class="row">
-
         <div class="col-3"></div>
-        <div class="col-6 rounded p-3 mt-5" style="color: black;background-color: white">
+        <div class="col-6 rounded p-3" style="color: black;background-color: white">
             <form action="check.php?c=3" method="POST">
                 <div class="form-group">
                     <label for="fname">First name</label>
@@ -32,12 +37,11 @@
                 </div>
                 <div class="form-group">
                     <label for="tel">Phone number</label>
-                    <input type="tel" class="form-control" id="tel" name="tel" placeholder="08-999-9999" >
+                    <input type="tel" class="form-control" id="tel" name="tel" placeholder="089999999">
                 </div>
                 <div style="align-content: center;text-align: center">
                     <button type="submit" class="btn btn-primary">register</button>
                 </div>
-
             </form>
         </div>
         <div class="col-3" ></div>

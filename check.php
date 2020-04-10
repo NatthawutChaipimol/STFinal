@@ -2,7 +2,7 @@
 session_start();
 $c=$_REQUEST["c"];
 echo $c;
-$conn = new mysqli("localhost", "root", "", "final_soft-test2");
+$conn = new mysqli("localhost", "root", "", "final_soft-test");
 if($c==1){
     session_destroy();
     echo "logout";

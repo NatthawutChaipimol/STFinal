@@ -11,7 +11,7 @@
     if(!isset($_SESSION["name"])){
         $_SESSION["name"] = "";
     }
-$_SESSION["name"] = "5555";
+//$_SESSION["name"] = "5555";
     $conn = new mysqli("localhost", "root", "", "final_soft-test2");
     if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
     $sql1 = "SELECT * FROM foodimg";
@@ -30,12 +30,12 @@ $_SESSION["name"] = "5555";
         <?php
         if($_SESSION["name"]==""){
         ?>
-            <button class="btn btn-light btn-outline-primary my-2 my-sm-0 mr-2" onclick="location.href='login.php'">Login</button>
-            <button class="btn btn-light btn-outline-primary my-2 my-sm-0" onclick="location.href='register.php'">Register</button>
+            <button class="btn btn-light btn-outline-primary my-2 my-sm-0 mr-2" formaction='login.php?l=1'>Login</button>
+            <button class="btn btn-light btn-outline-primary my-2 my-sm-0" formaction='register.php'>Register</button>
         <?php }else{ ?>
             <button class="btn btn-light btn-outline-primary my-2 my-sm-0 mr-2">Add Food picture</button>
             <button class="btn btn-light btn-outline-primary my-2 my-sm-0 mr-2">Add News</button>
-            <button class="btn btn-light btn-outline-primary my-2 my-sm-0" onclick="location.href='check.php?c=1'">Logout</button>
+            <button class="btn btn-light btn-outline-primary my-2 my-sm-0" onclick="window.location.href = 'check.php?c=1';" >Logout</button>
         <?php } ?>
     </form>
 </nav>

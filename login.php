@@ -8,32 +8,32 @@
     <title>login</title>
 <!--    <link rel="stylesheet" type="text/css" href="style.css">-->
 </head>
+<nav class="navbar navbar-light" style="background-color: #00a3cc;color: white">
+    <a class="navbar-brand" href="index.php" style="color: white">FoodShop</a>
+</nav>
 <body style="background-color: #00a3cc">
 <div class="container pt-5" >
     <h3 style="color: white ;text-align: center">login</h3>
     <div class="row">
-
         <div class="col-3"></div>
         <div class="col-6 rounded p-3 mt-5" style="color: black;background-color: white">
-            <form>
+            <form action="check.php?c=2" method="POST">
                 <div class="form-group">
                     <label for="email">Email address</label>
-                    <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
                 </div>
                 <div class="form-group">
                     <label for="tel">Phone number</label>
-                    <input type="tel" class="form-control" id="tel" placeholder="08-999-9999" >
+                    <input type="tel" class="form-control" id="tel" name="tel" placeholder="08-999-9999" >
                 </div>
                 <div style="align-content: center;text-align: center">
                     <button type="submit" class="btn btn-primary">Login</button>
-<!--                    <input type="submit" value="login">-->
                 </div>
 
             </form>
         </div>
         <div class="col-3" ></div>
     </div>
-
 </div>
 </body>
 </html>

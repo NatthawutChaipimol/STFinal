@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>register</title>
 </head>
+<nav class="navbar navbar-light" style="background-color: #00a3cc;color: white">
+    <a class="navbar-brand" href="index.php" style="color: white">FoodShop</a>
+</nav>
 <body style="background-color: #00a3cc">
 <div class="container pt-5" >
     <h3 style="color: white ;text-align: center">register</h3>
@@ -14,22 +17,22 @@
 
         <div class="col-3"></div>
         <div class="col-6 rounded p-3 mt-5" style="color: black;background-color: white">
-            <form>
+            <form action="check.php?c=3" method="POST">
                 <div class="form-group">
-                    <label for="fname">Email address</label>
-                    <input type="text" class="form-control" id="fname" placeholder="First name">
+                    <label for="fname">First name</label>
+                    <input type="text" class="form-control" id="fname" name="fname" placeholder="First name">
                 </div>
                 <div class="form-group">
-                    <label for="lname">Email address</label>
-                    <input type="text" class="form-control" id="lname" placeholder="Last name">
+                    <label for="lname">Last name</label>
+                    <input type="text" class="form-control" id="lname" name="lname" placeholder="Last name">
                 </div>
                 <div class="form-group">
                     <label for="email">Email address</label>
-                    <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
                 </div>
                 <div class="form-group">
                     <label for="tel">Phone number</label>
-                    <input type="tel" class="form-control" id="tel" placeholder="08-999-9999" >
+                    <input type="tel" class="form-control" id="tel" name="tel" placeholder="08-999-9999" >
                 </div>
                 <div style="align-content: center;text-align: center">
                     <button type="submit" class="btn btn-primary">register</button>

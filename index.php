@@ -23,7 +23,6 @@
     </form>
 </nav>
 <div class="container mt-5">
-
     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <?php

@@ -16,7 +16,7 @@
     <div class="border border-primary p-3 mt-4">
         <div class="row">
             <div class="col-6">
-                <img id="myImg" src="Image/mainImage.png" style="width: 300px;height: 250px">
+                <img id="myImg" src="Image/mainImage.png" style="width: 100%">
             </div>
             <div class="col-6">
                 <form action="addnewschack.php?s=0" method="post" id="form1" onsubmit="return chackInput()" enctype="multipart/form-data">

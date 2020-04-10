@@ -59,17 +59,11 @@
         }
     }
     function chackInput() {
-        // var header = document.getElementById("header").value;
-        // var detail = document.getElementById("detail").value;
         var img = document.getElementById("img").value;
         if(img == ""){
             alert("กรุณาเลือกรูปภาพ");
             return false;
         }
-        // else {
-        //     alert("เพิ่มข่าวสำเร็จ.....")
-        //     return true;
-        // }
     }
 </script>
 

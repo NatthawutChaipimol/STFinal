@@ -23,7 +23,7 @@
     <div class="row">
         <div class="col-3"></div>
         <div class="col-6 rounded p-3" style="color: black;background-color: white">
-            <form action="check.php?c=2" method="POST">
+            <form action="check.php?c=2" method="POST" onsubmit="return check()">
                 <div class="form-group">
                     <label for="email">Email address</label>
                     <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
@@ -44,25 +44,33 @@
 <script>
     function check() {
         var phoneFormat = /^\d{10}$/;
-        var emailFormat=  /^([a-z0-9A-Z_]{2,100})?[@]?$/;
-        // var nameFormat = /^[A-Za-z0-9ก-ฮ_ะาิีึืุูเะแโั ]{2,100}$/;
+        var patternemail = /^[a-zA-Z_0-9\s]+$/;
 
-        // let fname = document.getElementById("fname");
-        // let lname = document.getElementById("lname");
-        let email = document.getElementById("email");
-        let tel = document.getElementById("tel");
+        let email = document.getElementById("email").value;
+        let tel = document.getElementById("tel").value;
 
-        // if(fname.value == "" && fname.value.match(nameFormat)){
-        //     window.alert('กรุณากรอกข้อมูล Username')
-        //     return false
-        // }
-        // else if(lname.value == "" && lname.value.match(nameFormat)){
-        //     window.alert('กรุณากรอกข้อมูล Username')
-        //     return false
-        // }
-        if(tel.value == "" && tel.value.match(phoneFormat)){
+        var res = email.split("@");
+        if(tel == "" && tel.match(phoneFormat)){
             window.alert('กรุณากรอกข้อมูล Phone number')
             return false
+        }else{
+            if(res.length != 2 || !res[0].match(patternemail)) {
+                alert("รูปแบบ email ให้ถูกต้อง")
+                return false;
+            }else{
+                if(res[1] == "gmail.com" || res[1] == "hotmail.com"){
+                    if(!tel.match(pattertel)){
+                        alert("รูปแบบ email ให้ถูกต้อง")
+                        return false;
+                    }
+                    else{
+                        return true
+                    }
+                }else{
+                    alert("รูปแบบ email ให้ถูกต้อง")
+                    return false
+                }
+            }
         }
     }
 </script>

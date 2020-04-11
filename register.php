@@ -57,36 +57,28 @@
         var tel = document.getElementById("tel").value;
 
         var res = email.split("@");
-        var patternname = /^[a-zA-Zก-๏\s]+$/;
-        var patternemail = /^[a-zA-Z_0-9\s]+$/;
-        var pattertel = /^[0-9\s]+$/;
+        var patternname = /^[a-zA-Zก-๏\s]{2,50}$/;
+        var patternemail = /^[a-zA-Z_0-9\s]{1,50}$/;
+        var phoneFormat = /^\d{10}$/;
 
         if(!fname.match(patternname)) {
-            alert("กรุณากรอกข้อมูล First name ให้ถูกต้อง")
+            alert("กรุณากรอกข้อมูล First name ให้ถูกต้อง\n 1. First name ต้องเป็นตัวอักษรภาษาไทยหรือภาษาอังกฤษเท่านั้น\n2. ความยาวของ First name ต้องอยู่ระหว่าง 2 ถึง 50 ตัวเท่านั้น")
+            return false;
+        }else if(!lname.match(patternname)){
+            alert("กรุณากรอกข้อมูล Last name ให้ถูกต้อง\n 1. Last name ต้องเป็นตัวอักษรภาษาไทยหรือภาษาอังกฤษเท่านั้น\n2. ความยาวของ Last name ต้องอยู่ระหว่าง 2 ถึง 50 ตัวเท่านั้น")
+            return false;
+        }else if(res.length != 2 || res[0].match(patternemail) == null || (res[1] != "gmail.com" && res[1] != "hotmail.com")) {
+            alert("กรุณากรอกข้อมูล email ให้ถูกต้อง " +
+                "\n 1. ชื่อ email ต้องเป็นตัวอักษรภาษาอังกฤษพิมพ์ใหญ่ พิมพ์เล็ก ตัวเลข หรือสัญญาลักษณ์ \"_\" เท่านั้น " +
+                "\n2. ความยาวของชื่อ email ต้องอยู่ระหว่าง 1 ถึง 50 ตัวเท่านั้น" +
+                "\n3. จะต้องตามด้วย \"@gmail.com\" หรือ \"@hotmail.com\" เท่านั้น");
+            return false;
+        }
+        else if(tel == "" || tel.match(phoneFormat) == null){
+            window.alert('กรุณากรอกข้อมูล Phone number ให้ถูกต้อง ต้องอยู่ในรูปแบบตัวเลข 10 หลักเท่านั้น');
             return false;
         }else{
-            if(!lname.match(patternname)){
-                alert("กรุณากรอกข้อมูล Last name ให้ถูกต้อง")
-                return false;
-            }else{
-                if(res.length != 2 || !res[0].match(patternemail)) {
-                    alert("กรุณากรอก email ให้ถูกต้อง")
-                    return false;
-                }else{
-                    if(res[1] == "gmail.com" || res[1] == "hotmail.com"){
-                        if(!tel.match(pattertel)){
-                            alert("กรุณากรอกข้อมูล tel ให้ถูกต้อง")
-                            return false;
-                        }
-                        else{
-                            return true
-                        }
-                    }else{
-                        alert("กรุณากรอก email ให้ถูกต้อง")
-                    }
-
-                }
-            }
+            return true;
         }
     }
 </script>

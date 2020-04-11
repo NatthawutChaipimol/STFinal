@@ -18,11 +18,12 @@ if (!isset($_SESSION["name"])) {
     if ($_SESSION["name"] == "") {
         ?>
         <div class="form-inline">
-            <button class="btn btn-light btn-outline-primary my-2 my-sm-0 mr-2"
-                    onclick="window.location.href = 'login.php?l=1'"><i class="fas fa-cat"></i>
-            </button>
-            <button class="btn btn-light btn-outline-primary my-2 my-sm-0" onclick="window.location.href = 'register.php?r=1'"><i class="fas fa-otter"></i>
-            </button>
+            <a class="btn btn-light btn-outline-primary my-2 my-sm-0 mr-2" href="login.php?l=1">
+                <img src="Image/cat.png"> LOGIN
+            </a>
+            <a class="btn btn-light btn-outline-primary my-2 my-sm-0 mr-2" href="login.php?l=1">
+                <img src="Image/rat.png"> Register
+            </a>
         </div>
     <?php } else { ?>
         <div class="form-inline">

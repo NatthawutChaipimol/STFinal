@@ -35,7 +35,6 @@
                 <div style="align-content: center;text-align: center">
                     <button type="submit" class="btn btn-primary" onclick="return check()">Login</button>
                 </div>
-
             </form>
         </div>
         <div class="col-3" ></div>
@@ -45,14 +44,18 @@
     function check() {
         var phoneFormat = /^\d{10}$/;
         var patternemail = /^[a-zA-Z_0-9\s]{1,50}$/;
+
+
         let email = document.getElementById("email").value;
         let tel = document.getElementById("tel").value;
         var res = email.split("@");
+
         if(res.length != 2 || res[0].match(patternemail) == null || (res[1] != "gmail.com" && res[1] != "hotmail.com")) {
             alert("กรุณากรอกข้อมูล email ให้ถูกต้อง " +
                 "\n 1. ชื่อ email ต้องเป็นตัวอักษรภาษาอังกฤษพิมพ์ใหญ่ พิมพ์เล็ก ตัวเลข หรือสัญญาลักษณ์ \"_\" เท่านั้น " +
                 "\n2. ความยาวชื่อ email ต้องอยู่ระหว่าง 1 ถึง 50 ตัวเท่านั้น" +
                 "\n3. จะต้องตามด้วย \"@gmail.com\" หรือ \"@hotmail.com\" เท่านั้น");
+
             return false;
         }
         else if(tel == "" || tel.match(phoneFormat) == null){

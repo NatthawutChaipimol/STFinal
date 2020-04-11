@@ -22,7 +22,7 @@
     <div class="row">
         <div class="col-3"></div>
         <div class="col-6 rounded p-3" style="color: black;background-color: white">
-            <form action="check.php?c=3" method="POST">
+            <form action="check.php?c=3" method="POST" onsubmit="return chackInput()">
                 <div class="form-group">
                     <label for="fname">First name</label>
                     <input type="text" class="form-control" id="fname" name="fname" placeholder="First name">
@@ -49,4 +49,46 @@
 
 </div>
 </body>
+<script>
+    function chackInput() {
+        var fname = document.getElementById("fname").value;
+        var lname = document.getElementById("lname").value;
+        var email = document.getElementById("email").value;
+        var tel = document.getElementById("tel").value;
+
+        var res = email.split("@");
+        var patternname = /^[a-zA-Zก-๏\s]+$/;
+        var patternemail = /^[a-zA-Z_0-9\s]+$/;
+        var pattertel = /^[0-9\s]+$/;
+
+        if(!fname.match(patternname)) {
+            alert("กรุณากรอกข้อมูล First name ให้ถูกต้อง")
+            return false;
+        }else{
+            if(!lname.match(patternname)){
+                alert("กรุณากรอกข้อมูล Last name ให้ถูกต้อง")
+                return false;
+            }else{
+                if(res.length != 2 || !res[0].match(patternemail)) {
+                    alert("กรุณากรอก email ให้ถูกต้อง")
+                    return false;
+                }else{
+                    if(res[1] == "gmail.com" || res[1] == "hotmail.com"){
+                        if(!tel.match(pattertel)){
+                            alert("กรุณากรอกข้อมูล tel ให้ถูกต้อง")
+                            return false;
+                        }
+                        else{
+                            return true
+                        }
+                    }
+                    else{
+                        alert("กรุณากรอก email ให้ถูกต้อง")
+                        return false;
+                    }
+                }
+            }
+        }
+    }
+</script>
 </html>

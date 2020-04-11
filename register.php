@@ -81,6 +81,8 @@
                         else{
                             return true
                         }
+                    }else{
+                        alert("กรุณากรอก email ให้ถูกต้อง")
                     }
                     else{
                         alert("กรุณากรอก email ให้ถูกต้อง")

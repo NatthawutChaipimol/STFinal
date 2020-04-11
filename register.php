@@ -51,15 +51,16 @@
 </body>
 <script>
     function chackInput() {
+        var patternname = /^[a-zA-Zก-๏\s]{2,50}$/;
+        var patternemail = /^[a-zA-Z_0-9\s]{1,50}$/;
+        var phoneFormat = /^\d{10}$/;
+
         var fname = document.getElementById("fname").value;
         var lname = document.getElementById("lname").value;
         var email = document.getElementById("email").value;
         var tel = document.getElementById("tel").value;
-
         var res = email.split("@");
-        var patternname = /^[a-zA-Zก-๏\s]{2,50}$/;
-        var patternemail = /^[a-zA-Z_0-9\s]{1,50}$/;
-        var phoneFormat = /^\d{10}$/;
+
 
         if(!fname.match(patternname)) {
             alert("กรุณากรอกข้อมูล First name ให้ถูกต้อง\n 1. First name ต้องเป็นตัวอักษรภาษาไทยหรือภาษาอังกฤษเท่านั้น\n2. ความยาวของ First name ต้องอยู่ระหว่าง 2 ถึง 50 ตัวเท่านั้น")

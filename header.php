@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
      <meta charset="UTF-8">
 </head>
 <body>
@@ -18,9 +19,9 @@ if (!isset($_SESSION["name"])) {
         ?>
         <div class="form-inline">
             <button class="btn btn-light btn-outline-primary my-2 my-sm-0 mr-2"
-                    onclick="window.location.href = 'login.php?l=1'">Login
+                    onclick="window.location.href = 'login.php?l=1'"><i class="fas fa-cat"></i>
             </button>
-            <button class="btn btn-light btn-outline-primary my-2 my-sm-0" onclick="window.location.href = 'register.php?r=1'">Register
+            <button class="btn btn-light btn-outline-primary my-2 my-sm-0" onclick="window.location.href = 'register.php?r=1'"><i class="fas fa-otter"></i>
             </button>
         </div>
     <?php } else { ?>

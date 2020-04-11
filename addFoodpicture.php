@@ -5,36 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <title>Add news</title>
+    <title>Add Food picture</title>
 </head>
 <body>
 <?php
     include 'header.php';
 ?>
 <div style="margin-right: 30%;margin-left: 30%; margin-top: 5%">
-    <h2 class="font-weight-bold" style="text-align: center">Add News</h2>
+    <h2 class="font-weight-bold" style="text-align: center">Add Food picture</h2>
     <div class="border border-primary p-3 mt-4">
         <div class="row">
             <div class="col-6">
                 <img id="myImg" src="Image/mainImage.png" style="width: 100%">
             </div>
             <div class="col-6">
-                <form action="addnewschack.php?s=0" method="post" id="form1" onsubmit="return chackInput()" enctype="multipart/form-data">
-                    <h3>หัวเรื่องข่าว</h3>
-                    <input type="text" id="header" name="header" style="width: 100%;">
-                    <h5>รายละเอียด</h5>
-                    <textarea type="text" id="detail" name="detail" style="width: 100%"></textarea>
+                <form action="check.php?c=4" method="post" id="form1" onsubmit="return chackInput()" enctype="multipart/form-data">
+                    <h3>เลือกรูป</h3>
                     <input class="" type="file" id="img" name="img" accept="image/*" onchange="readURL(this)">
 
                 </form>
-                    <div class="row mt-2">
-                        <div class="col-6">
-                            <button  type="submit" class="btn btn-success btn-block" form="form1">เพิ่มข่าว</button>
-                        </div>
-                        <div class="col-6">
-                            <button class="btn btn-danger btn-block" onclick="window.location.href='index.php'">ยกเลิก</button>
-                        </div>
+                <div class="row mt-2">
+                    <div class="col-6">
+                        <button  type="submit" class="btn btn-success btn-block" form="form1">เพิ่มรูป</button>
                     </div>
+                    <div class="col-6">
+                        <button class="btn btn-danger btn-block" onclick="window.location.href='index.php'">ยกเลิก</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -61,24 +58,18 @@
             reader.readAsDataURL(input.files[0]);
         }
     }
+
     function chackInput() {
-        var header = document.getElementById("header").value;
-        var detail = document.getElementById("detail").value;
         var img = document.getElementById("img").value;
-        if(header == ""){
-            alert("กรุณาใส่หัวเรื่องข่าว");
-            return false;
-        }else if(detail == ""){
-            alert("กรุณาใส่รายละเอียด");
-            return false;
-        }else if(img == ""){
+        if(img == ""){
             alert("กรุณาเลือกรูปภาพ");
             return false;
-        }else {
-            alert("เพิ่มข่าวสำเร็จ")
+        }else{
+            alert("เพิ่มรูปอาหารสำเร็จ");
             return true;
         }
     }
+
 </script>
 
 </body>

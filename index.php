@@ -8,10 +8,10 @@
     <title>Index</title>
 </head>
 <?php
-session_start();
-if (!isset($_SESSION["name"])) {
-    $_SESSION["name"] = "";
-}
+//session_start();
+//if (!isset($_SESSION["name"])) {
+//    $_SESSION["name"] = "";
+//}
 //$_SESSION["name"] = "5555";
 $conn = new mysqli("localhost", "root", "", "final_soft-test");
 if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
@@ -22,33 +22,9 @@ $result2 = $conn->query($sql2);
 ?>
 <body>
 <?php
-//    include 'header.php';
-//?>
-<nav class="navbar navbar-light" style="background-color: #00a3cc;color: white">
-    <a class="navbar-brand" href="index.php" style="color: white">FoodShop</a>
+    include 'header.php';
+?>
 
-    <?php
-    if ($_SESSION["name"] == "") {
-        ?>
-        <div class="form-inline">
-            <button class="btn btn-light btn-outline-primary my-2 my-sm-0 mr-2"
-                    onclick="window.location.href = 'login.php?l=1'">Login
-            </button>
-            <button class="btn btn-light btn-outline-primary my-2 my-sm-0" onclick="window.location.href = 'register.php?r=1'">Register
-            </button>
-        </div>
-    <?php } else { ?>
-    <div class="form-inline">
-        <a style="margin-right: 10px"><?php echo $_SESSION["name"]; ?></a>
-        <button class="btn btn-light btn-outline-primary my-2 my-sm-0 mr-2">Add Food picture</button>
-        <button class="btn btn-light btn-outline-primary my-2 my-sm-0 mr-2"
-                onclick="window.location.href = 'addnews.php';">Add News</button>
-        <button class="btn btn-light btn-outline-primary my-2 my-sm-0"
-                onclick="window.location.href = 'check.php?c=1';">Logout
-        </button>
-    </div>
-    <?php } ?>
-</nav>
 <div class="container mt-5">
     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
@@ -77,9 +53,10 @@ $result2 = $conn->query($sql2);
             <span class="sr-only">Next</span>
         </a>
     </div>
-
+    <div class="card mb-3 mt-4">
+        <h4 class="m-3">News</h4>
     <?php while ($row = $result2->fetch_assoc()) { ?>
-        <div class="card mb-3 mt-4">
+        <div class="card m-3">
             <div class="row no-gutters">
                 <div class="col-md-2">
                     <img src="Image/<?php echo $row["nImg"]; ?>" class="card-img" alt="..." style="height: 200px">
@@ -95,6 +72,7 @@ $result2 = $conn->query($sql2);
             </div>
         </div>
     <?php } ?>
+    </div>
 
 </div>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

@@ -44,33 +44,22 @@
 <script>
     function check() {
         var phoneFormat = /^\d{10}$/;
-        var patternemail = /^[a-zA-Z_0-9\s]+$/;
-
+        var patternemail = /^[a-zA-Z_0-9\s]{1,50}$/;
         let email = document.getElementById("email").value;
         let tel = document.getElementById("tel").value;
-
         var res = email.split("@");
-        if(tel == "" && tel.match(phoneFormat)){
-            window.alert('กรุณากรอกข้อมูล Phone number')
-            return false
+        if(res.length != 2 || res[0].match(patternemail) == null || (res[1] != "gmail.com" && res[1] != "hotmail.com")) {
+            alert("กรุณากรอกข้อมูล email ให้ถูกต้อง " +
+                "\n 1. ชื่อ email ต้องเป็นตัวอักษรภาษาอังกฤษพิมพ์ใหญ่ พิมพ์เล็ก ตัวเลข หรือสัญญาลักษณ์ \"_\" เท่านั้น " +
+                "\n2. ความยาวชื่อ email ต้องอยู่ระหว่าง 1 ถึง 50 ตัวเท่านั้น" +
+                "\n3. จะต้องตามด้วย \"@gmail.com\" หรือ \"@hotmail.com\" เท่านั้น");
+            return false;
+        }
+        else if(tel == "" || tel.match(phoneFormat) == null){
+            window.alert('กรุณากรอกข้อมูล Phone number ให้ถูกต้อง ต้องอยู่ในรูปแบบตัวเลข 10 หลักเท่านั้น');
+            return false;
         }else{
-            if(res.length != 2 || !res[0].match(patternemail)) {
-                alert("รูปแบบ email ให้ถูกต้อง")
-                return false;
-            }else{
-                if(res[1] == "gmail.com" || res[1] == "hotmail.com"){
-                    if(!tel.match(pattertel)){
-                        alert("รูปแบบ email ให้ถูกต้อง")
-                        return false;
-                    }
-                    else{
-                        return true
-                    }
-                }else{
-                    alert("รูปแบบ email ให้ถูกต้อง")
-                    return false
-                }
-            }
+            return true;
         }
     }
 </script>

@@ -21,7 +21,7 @@ if (!isset($_SESSION["name"])) {
             <a class="btn btn-light btn-outline-primary my-2 my-sm-0 mr-2" href="login.php?l=1">
                 <img src="Image/cat.png"> LOGIN
             </a>
-            <a class="btn btn-light btn-outline-primary my-2 my-sm-0 mr-2" href="login.php?l=1">
+            <a class="btn btn-light btn-outline-primary my-2 my-sm-0 mr-2" href="register.php?r=1">
                 <img src="Image/rat.png"> Register
             </a>
         </div>
